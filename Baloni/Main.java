@@ -20,15 +20,27 @@ class Main {
             arr[i] = sc.nextInt();
         }
 
-        for (int j = 0; j < n; j++) {
-            int height = arr[j];
+        int height = arr[0];
+        int index = indexOf(arr, height - 1, 1);
 
-            if (j == n - 1 && height == 0) {
-                break;
-            } else if (j == n - 1 && height > 0) {
-                arrows++;
-                break;
+        while (height != arr[arr.length - 1] || index > 0) {
+            int start = 1;
+            int index = indexOf(arr, height - 1, start);
+                height--;
+                arr[index] = -1;
+                start = index + 1;
+                index = indexOf(arr, height - 1, start);
             }
+
+            if (height > 0) {
+                arrows++;
+            }
+        if (height == n - 1 && height == 0) {
+            break;
+        } else if (j == n - 1 && height > 0) {
+            arrows++;
+            break;
+        }
             int start = j + 1;
             int index = indexOf(arr, height - 1, start);
             while (index > 0) {
@@ -44,4 +56,4 @@ class Main {
         }
         System.out.println(arrows);
     }
-}
+    }
