@@ -22,8 +22,6 @@ class Main {
 
         for (int j = 0; j < n; j++) {
             int height = arr[j];
-            System.out.println("Height: " + height);
-            System.out.println("Arrows: " + arrows);
 
             if (j == n - 1 && height == 0) {
                 break;
@@ -34,7 +32,6 @@ class Main {
             int start = j + 1;
             int index = indexOf(arr, height - 1, start);
             while (index > 0) {
-                System.out.println("Index: " + index);
                 height--;
                 arr[index] = -1;
                 start = index + 1;
